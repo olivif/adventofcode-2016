@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BathroomSecurity\BathroomSecuritySolver.cs" />
     <Compile Include="Common\Direction.cs" />
     <Compile Include="BathroomSecurity\Keypad.cs" />
     <Compile Include="Common\DirectionManager.cs" />

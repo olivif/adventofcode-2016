@@ -18,5 +18,18 @@ namespace AdventOfCode.Common
 
             return new Position(x, y);
         }
+
+        public Direction Parse(char character)
+        {
+            switch (character)
+            {
+                case 'L': return Direction.Left;
+                case 'R': return Direction.Right;
+                case 'U': return Direction.Up;
+                case 'D': return Direction.Down;
+            }
+
+            throw new InvalidOperationException();
+        }
     }
 }
