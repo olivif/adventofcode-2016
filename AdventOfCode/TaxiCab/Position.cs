@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace AdventOfCode.TaxiCab
+﻿namespace AdventOfCode.TaxiCab
 {
-    public class Coordinates
+    public class Position
     {
         public int X { get; set; }
 
         public int Y { get; set; }
 
-        public bool Equals(Coordinates other)
+        public bool Equals(Position other)
         {
             if (other == null)
             {
