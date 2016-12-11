@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Common\Direction.cs" />
     <Compile Include="BathroomSecurity\Keypad.cs" />
+    <Compile Include="Common\DirectionManager.cs" />
     <Compile Include="TaxiCab\OrientationManager.cs" />
     <Compile Include="Common\Position.cs" />
     <Compile Include="TaxiCab\Instruction.cs" />

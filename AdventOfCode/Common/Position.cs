@@ -28,6 +28,12 @@
             this.Y += offsetPosition.Y;
         }
 
+        public void MoveReverse(Position offsetPosition)
+        {
+            this.X -= offsetPosition.X;
+            this.Y -= offsetPosition.Y;
+        }
+
         public Position DeepCopy()
         {
             return new Position(this.X, this.Y);
