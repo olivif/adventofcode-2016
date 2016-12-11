@@ -1,6 +1,7 @@
 ﻿namespace AdventOfCode.Tests
 {
     using System;
+    using AdventOfCode.TaxiCab;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using TaxiCab;
 
@@ -44,6 +45,18 @@
                 {
                     Direction = Direction.Left,
                     Distance = 4
+                });
+        }
+
+        [TestMethod]
+        public void InstructionParser_ParseInstruction_LeftLarge()
+        {
+            this.AssertParsedInstruction(
+                rawInstruction: "L186",
+                expectedInstruction: new Instruction()
+                {
+                    Direction = Direction.Left,
+                    Distance = 186
                 });
         }
 

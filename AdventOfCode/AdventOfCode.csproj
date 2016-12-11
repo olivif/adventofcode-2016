@@ -44,6 +44,8 @@
     <Compile Include="TaxiCab\Instruction.cs" />
     <Compile Include="TaxiCab\InstructionParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaxiCab\Orientation.cs" />
+    <Compile Include="TaxiCab\TaxiCabSolver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
