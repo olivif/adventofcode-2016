@@ -12,6 +12,9 @@
 
             this.CurrentPosition = currentPosition;
             this.CurrentOrientation = currentOrientation;
+
+            this.PositionHistory = new List<Position>();
+            this.PositionHistory.Add(this.CurrentPosition.DeepCopy());
         }
 
         public Orientation CurrentOrientation { get; set; }
@@ -30,6 +33,8 @@
             for (int instructionStep = 0; instructionStep < instruction.Distance; instructionStep++)
             {
                 this.CurrentPosition.Move(positionOffset);
+
+                this.PositionHistory.Add(this.CurrentPosition.DeepCopy());
             }
         }
     }
