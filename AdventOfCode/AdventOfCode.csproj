@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TaxiCab\Coordinates.cs" />
     <Compile Include="TaxiCab\Direction.cs" />
     <Compile Include="TaxiCab\Instruction.cs" />
     <Compile Include="TaxiCab\InstructionParser.cs" />

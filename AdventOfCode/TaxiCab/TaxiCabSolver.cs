@@ -15,7 +15,7 @@ namespace AdventOfCode.TaxiCab
             Orientation.West,
         };
 
-        public int Solve(string rawInstructions)
+        public int Solve(string rawInstructions, bool stopAfterSameLocation = false)
         {
             var parser = new InstructionParser();
 
@@ -31,25 +31,52 @@ namespace AdventOfCode.TaxiCab
                 steps.Add(orientation, 0);
             }
 
+            // Record all coordinates
+            var coordinatesHistory = new List<Coordinates>();
+            coordinatesHistory.Add(new Coordinates() { X = 0, Y = 0 });
+
+            Coordinates coordinateVisitedTwice;
+
             // Calculate steps
-            foreach(var instruction in instructions)
+            foreach (var instruction in instructions)
             {
                 currentOrientation = this.GetNextOrientation(currentOrientation, instruction.Direction);
 
                 steps[currentOrientation] += instruction.Distance;
+
+                var coordinates = this.CalculateCoordinates(steps);
+
+                if (stopAfterSameLocation && coordinatesHistory.Contains(coordinates))
+                {
+                    coordinateVisitedTwice = coordinates;
+                }
+
+                coordinatesHistory.Add(coordinates);
             }
 
-            var totalSteps = this.CalculateTotalSteps(steps);
+            return this.CalculateTotalSteps(steps);
+        }
 
-            return totalSteps;
+        public Coordinates CalculateCoordinates(IDictionary<Orientation, int> steps)
+        {
+            var x = steps[Orientation.North] - steps[Orientation.South];
+            var y = steps[Orientation.West] - steps[Orientation.East];
+
+            return new Coordinates()
+            {
+                X = x,
+                Y = y
+            };
         }
 
         public int CalculateTotalSteps(IDictionary<Orientation, int> steps)
         {
             // Now work out the distance 
+            var coordinates = this.CalculateCoordinates(steps);
+
             var totalSteps =
-                Math.Abs(steps[Orientation.North] - steps[Orientation.South]) +
-                Math.Abs(steps[Orientation.West] - steps[Orientation.East]);
+                Math.Abs(coordinates.X) +
+                Math.Abs(coordinates.Y);
 
             return totalSteps;
         }
