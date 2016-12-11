@@ -36,6 +36,30 @@
         }
 
         [TestMethod]
+        public void InstructionParser_ParseInstruction_Left()
+        {
+            this.AssertParsedInstruction(
+                rawInstruction: "L4",
+                expectedInstruction: new Instruction()
+                {
+                    Direction = Direction.Left,
+                    Distance = 4
+                });
+        }
+
+        [TestMethod]
+        public void InstructionParser_ParseInstruction_Right()
+        {
+            this.AssertParsedInstruction(
+                rawInstruction: "R10",
+                expectedInstruction: new Instruction()
+                {
+                    Direction = Direction.Right,
+                    Distance = 10
+                });
+        }
+
+        [TestMethod]
         public void InstructionParser_ParseInstructions_One()
         {
             this.AssertInstructionsCount(
@@ -49,6 +73,20 @@
             this.AssertInstructionsCount(
                 rawInstructions: "L4, R2, R4", 
                 expectedCount: 3);
+        }
+
+        private void AssertParsedInstruction(string rawInstruction, Instruction expectedInstruction)
+        {
+            // Arrange
+            var parser = new InstructionParser();
+
+            // Act
+            var instruction = parser.ParseInstruction(rawInstruction);
+
+            // Assert
+            Assert.IsNotNull(instruction);
+            Assert.AreEqual(expectedInstruction.Direction, instruction.Direction);
+            Assert.AreEqual(expectedInstruction.Distance, instruction.Distance);
         }
 
         public void AssertInstructionsCount(string rawInstructions, int expectedCount)

@@ -22,19 +22,26 @@
 
             foreach(var rawInstruction in rawInstructions)
             {
-                var direction = this.ParseDirection(rawInstruction[0]);
-                var distance = Int32.Parse(rawInstruction.Substring(1));
-
-                var parsedInstruction = new Instruction()
-                {
-                    Direction = direction, 
-                    Distance = distance
-                };
+                var parsedInstruction = this.ParseInstruction(rawInstruction);
 
                 parsedInstructions.Add(parsedInstruction);
             }
 
             return parsedInstructions;
+        }
+
+        public Instruction ParseInstruction(string rawInstruction)
+        {
+            var direction = this.ParseDirection(rawInstruction[0]);
+            var distance = Int32.Parse(rawInstruction.Substring(1));
+
+            var parsedInstruction = new Instruction()
+            {
+                Direction = direction,
+                Distance = distance
+            };
+
+            return parsedInstruction;
         }
 
         public Direction ParseDirection(char direction)
