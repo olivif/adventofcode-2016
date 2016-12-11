@@ -1,6 +1,7 @@
 ﻿namespace AdventOfCode.TaxiCab
 {
     using System.Collections.Generic;
+    using Common;
 
     public class OrientationManager
     {

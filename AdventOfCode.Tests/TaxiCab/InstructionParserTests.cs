@@ -2,8 +2,8 @@
 {
     using System;
     using AdventOfCode.TaxiCab;
+    using Common;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using TaxiCab;
 
     [TestClass]
     public class InstructionParserTests

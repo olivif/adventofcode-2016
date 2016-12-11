@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.TaxiCab
+﻿namespace AdventOfCode.Common
 {
     public class Position
     {

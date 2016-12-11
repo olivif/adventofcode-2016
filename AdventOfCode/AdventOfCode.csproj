@@ -40,9 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Direction.cs" />
+    <Compile Include="BathroomSecurity\Keypad.cs" />
     <Compile Include="TaxiCab\OrientationManager.cs" />
-    <Compile Include="TaxiCab\Position.cs" />
-    <Compile Include="TaxiCab\Direction.cs" />
+    <Compile Include="Common\Position.cs" />
     <Compile Include="TaxiCab\Instruction.cs" />
     <Compile Include="TaxiCab\InstructionParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
